@@ -5,20 +5,23 @@
 #include<cmath>
 using namespace std;
 
-struct Loan  // Loan is called structure tag
-{
-    int ID;  // assume an unique integer between 1111-9999
-    float amount; // $ amount of the loan
-    float rate; // annual interest rate
-    int term;  // number of months, length of the loan
-};
+typedef struct{
+  int ID;
+  float amount;
+  float rate;
+  int term;
+} Loan;
+
 
 float payment(Loan l);
 
 int main( )
 {
       Loan loan1;
+
       float monthly_payment;
+
+      cout << "Please enter information for two different loans: \n\n";
 
       // Initialize the loan1 structure
       cout << "Enter the ID of this loan \n";
@@ -44,4 +47,13 @@ float payment(Loan l)
 {
       l.rate = l.rate/1200;  // To convert % yearly rate to monthly fraction
       return l.amount*l.rate*(  pow( (l.rate+1), l.term)/ (pow( (l.rate+1), l.term) - 1) );
+}
+
+Loan initialize_struct(int ID, float amount, float rate, int term){
+  Loan loan;
+  loan.ID = ID;
+  loan.amount = amount;
+  loan.rate = rate;
+  loan.term = term;
+  return loan;
 }
