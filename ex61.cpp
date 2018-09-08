@@ -18,27 +18,49 @@ float payment(Loan l);
 int main( )
 {
       Loan loan1;
+      Loan loan2;
 
       float monthly_payment;
 
-      cout << "Please enter information for two different loans: \n\n";
+      cout << "Please enter information for two different loans. \n";
+      cout << "We will start with loan #1 and end with loan #2:\n\n";
 
       // Initialize the loan1 structure
-      cout << "Enter the ID of this loan \n";
+      cout << "Enter the ID of the first loan \n";
       cin >> loan1.ID;
 
-      cout << "Enter the amount of this loan \n";
+      cout << "Enter the amount of loan " << loan1.ID << "\n";
       cin >> loan1.amount;
 
-      cout << "Enter the annual interest rate of this loan (in %) \n";
+      cout << "Enter the annual interest rate of loan " << loan1.ID << "(in %) \n";
       cin >> loan1.rate;
 
-      cout << "Enter the term (number of months, length of the loan) \n";
+      cout << "Enter the term (number of months, length of loan " << loan1.ID << ") \n";
       cin >> loan1.term;
 
       monthly_payment  = payment(loan1);
 
       cout << "The monthly payment for loan " << loan1.ID << " is: " << monthly_payment << endl;
+
+      cout << "\nNow enter information for the second loan:\n";
+
+      // Initialize the loan2 structure
+      cout << "Enter the ID of the second loan \n";
+      cin >> loan2.ID;
+
+      cout << "Enter the amount of loan " << loan2.ID << "\n";
+      cin >> loan2.amount;
+
+      cout << "Enter the annual interest rate of loan " << loan2.ID << "(in %) \n";
+      cin >> loan2.rate;
+
+      cout << "Enter the term (number of months, length of loan " << loan2.ID << ") \n";
+      cin >> loan2.term;
+
+      monthly_payment  = payment(loan2);
+
+      cout << "The monthly payment for loan " << loan2.ID << " is: " << monthly_payment << endl;
+
 
       return 0;
 }
